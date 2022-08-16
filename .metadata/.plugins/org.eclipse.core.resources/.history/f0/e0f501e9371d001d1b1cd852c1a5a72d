@@ -1,0 +1,72 @@
+package com.digitalbooksreader.reader.models;
+
+import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Subscription")
+public class Subscription {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "pay_id")
+	private int book_id;
+	private String subscriberName;
+	private String subscriberEmail;
+	private LocalDateTime paytime;
+	private int pay_id;
+	public int getBook_id() {
+		return book_id;
+	}
+	public void setBook_id(int book_id) {
+		this.book_id = book_id;
+	}
+	public String getSubscriberName() {
+		return subscriberName;
+	}
+	public void setSubscriberName(String subscriberName) {
+		this.subscriberName = subscriberName;
+	}
+	public String getSubscriberEmail() {
+		return subscriberEmail;
+	}
+	public void setSubscriberEmail(String subscriberEmail) {
+		this.subscriberEmail = subscriberEmail;
+	}
+	public LocalDateTime getPaytime() {
+		return paytime;
+	}
+	public void setPaytime(LocalDateTime paytime) {
+		this.paytime = paytime;
+	}
+	public int getPay_id() {
+		return pay_id;
+	}
+	public void setPay_id(int pay_id) {
+		this.pay_id = pay_id;
+	}
+	@Override
+	public String toString() {
+		return "Subscription [book_id=" + book_id + ", subscriberName=" + subscriberName + ", subscriberEmail="
+				+ subscriberEmail + ", paytime=" + paytime + ", pay_id=" + pay_id + "]";
+	}
+	public Subscription(int book_id, String subscriberName, String subscriberEmail, LocalDateTime paytime, int pay_id) {
+		super();
+		this.book_id = book_id;
+		this.subscriberName = subscriberName;
+		this.subscriberEmail = subscriberEmail;
+		this.paytime = paytime;
+		this.pay_id = pay_id;
+	}
+	public Subscription() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}

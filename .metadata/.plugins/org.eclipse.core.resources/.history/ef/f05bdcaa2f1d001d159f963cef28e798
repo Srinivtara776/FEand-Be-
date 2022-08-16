@@ -1,0 +1,55 @@
+package com.digitalbooksreader.reader.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.digitalbooksreader.reader.models.Book;
+import com.digitalbooksreader.reader.models.Reader;
+import com.digitalbooksreader.reader.models.Subscriptionbook;
+import com.digitalbooksreader.reader.repository.ReaderClient;
+import com.digitalbooksreader.reader.repository.ReaderRepository;
+import com.digitalbooksreader.reader.repository.SubscriptionbooksRepository;
+
+import java.util.*;
+
+@Service
+public class ReaderService {
+	@Autowired
+	ReaderClient client;
+	@Autowired
+	ReaderRepository repo;
+	
+	@Autowired
+	SubscriptionRepository srepo;
+	
+	public List<Book> getAllBooks(){
+		return client.getAllBooks();
+	}
+	
+	public List<Book> findBookBasedOnInput(String author, String category, int price, String publisher){
+		return client.findBookBasedOnInput(author, category, price, publisher);
+	}
+	public Reader saveOrUpdate(Reader reader) {
+		return repo.save(reader);
+	}
+	
+	public Subscriptionbook saveOrUpdateSub(Subscriptionbook books) {
+		return srepo.save(books);
+	}
+
+	public Subscriptionbook getBookByEmail(String email) {
+		return srepo.findByEmail(email);
+	}
+
+public Subscriptionbook getBookById(int id) {
+	return srepo.findById(id);
+	
+}
+	
+	
+
+	
+	}
+	
+	
+	
+
